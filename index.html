@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Database Systems | Learning Website</title>
+  <style>
+    *{box-sizing:border-box}html,body{height:100%;margin:0;background:#071018;color:#e9f7f5;font-family:Arial,sans-serif}body{display:flex;flex-direction:column}header{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem clamp(1rem,4vw,3rem);border-bottom:1px solid #244b57;background:#0b1a24}h1{margin:0;font-size:clamp(1rem,2vw,1.4rem)}.eyebrow{color:#65e5d6;font:600 .68rem monospace;letter-spacing:.12em;text-transform:uppercase}nav{display:flex;gap:.5rem}nav button{color:#9db9bc;background:#102936;border:1px solid #244b57;padding:.55rem .85rem;border-radius:7px;cursor:pointer;font:600 .78rem monospace}nav button.active,nav button:hover{color:#071018;background:#65e5d6;border-color:#65e5d6}iframe{width:100%;flex:1;border:0;background:#071018}@media(max-width:600px){header{align-items:flex-start;flex-direction:column}nav{width:100%}nav button{flex:1}}
+  </style>
+</head>
+<body>
+  <header><div><div class="eyebrow">DATABASE SYSTEMS / LEARNING WEBSITE</div><h1>ระบบฐานข้อมูล: เรียนรู้ + ฝึกเขียน SQL</h1></div><nav><button id="slidesBtn">บทเรียนสไลด์</button><button id="examBtn">SQL Exam IDE</button></nav></header>
+  <iframe id="stage" title="Database learning content"></iframe>
+  <script>
+    const stage=document.querySelector('#stage'),slidesBtn=document.querySelector('#slidesBtn'),examBtn=document.querySelector('#examBtn');
+    function show(mode){const exam=mode==='exam';stage.src=exam?'database-exam-lab.html':'database-systems.html';slidesBtn.classList.toggle('active',!exam);examBtn.classList.toggle('active',exam);history.replaceState(null,'',exam?'#exam':'#slides')}
+    slidesBtn.onclick=()=>show('slides');examBtn.onclick=()=>show('exam');show(location.hash==='#exam'?'exam':'slides');
+  </script>
+</body>
+</html>
